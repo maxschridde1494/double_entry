@@ -15,7 +15,9 @@ require 'double_entry/balance_calculator'
 require 'double_entry/locking'
 require 'double_entry/transfer'
 require 'double_entry/line'
-require 'double_entry/line_metadata'
+unless DoubleEntry.config.json_metadata
+  require 'double_entry/line_metadata'
+end
 require 'double_entry/validation'
 
 # Keep track of all the monies!
