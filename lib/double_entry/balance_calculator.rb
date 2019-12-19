@@ -25,7 +25,7 @@ module DoubleEntry
         # all other lookups can be performed with running balances
         result = lines.
                  from(lines_table_name(options)).
-                 order('id DESC').
+                 order('created_at DESC, id DESC').
                  limit(1).
                  pluck(:balance)
         result.empty? ? Money.zero(account.currency) : Money.new(result.first, account.currency)
